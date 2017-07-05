@@ -1,9 +1,9 @@
 package br.com.trixlog.crudRoutes.services;
 
 import java.util.List;
-
 import br.com.trixlog.crudRoutes.models.Entity;
 import br.com.trixlog.crudRoutes.repositories.IEntityRepository;
+
 
 public abstract class EntityService<T extends Entity> {
 	protected abstract IEntityRepository<T> getRepository();
@@ -12,8 +12,13 @@ public abstract class EntityService<T extends Entity> {
 		return getRepository().findAll();
 	}
 	
-	public void InsertOrUpdate(T entity){
-		getRepository().save(entity);
+	
+	public T insert(T entity){
+		return getRepository().insert(entity);
+	}
+	
+	public T update(T entity){
+		return getRepository().save(entity);
 	}
 	
 	public T findOne(String id){
