@@ -25,11 +25,11 @@ public class RouteService extends EntityService<Route>{
 		return repository;
 	}
 	
-	public Route createRoute(int vehicleId,Date routerDate,String name,List<Stop> stops){
+	public Route createRoute(int vehicleId,String name,List<Stop> stops){
 		Route route = new Route();
 		route.setName(name);
 		route.setVehicleId(vehicleId);
-		route.setRouterDate(routerDate);
+		route.setRouterDate(new Date());
 		route.setStops(stops);
 		route.setPath(PolylineGoogleApi.getPolyline(RequestGoogle.makeUrl(stops)));
 		return repository.insert(route);

@@ -1,10 +1,8 @@
 package br.com.trixlog.crudRoutes.controllers;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +29,7 @@ public class RouteController  extends EntityController<Route>{
 	public Route createRoute(@PathVariable int vehicleId,
 			@PathVariable String name, 
 				@RequestBody List<Stop> stops){
-		return service.createRoute(vehicleId, new Date(), name, stops);
+		return service.createRoute(vehicleId, name, stops);
 	}
 
 }
