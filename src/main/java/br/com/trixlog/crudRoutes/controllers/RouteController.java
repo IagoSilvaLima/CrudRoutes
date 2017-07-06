@@ -29,7 +29,7 @@ public class RouteController  extends EntityController<Route>{
 	
 	@PostMapping("/createRoute/{vehicleId}/{name}/{date}")
 	public Route createRoute(@PathVariable int vehicleId,
-			@PathVariable String name, @PathVariable Date date,@DateTimeFormat(pattern="dd-MM-yyyy") 
+			@PathVariable String name, @PathVariable  @DateTimeFormat(pattern="dd-MM-yyyy") Date date, 
 				@RequestBody List<Stop> stops){
 		return service.createRoute(vehicleId, new Date(), name, stops);
 	}
