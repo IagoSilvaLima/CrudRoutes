@@ -31,7 +31,7 @@ public class RouteController  extends EntityController<Route>{
 	public Route createRoute(@PathVariable int vehicleId,
 			@PathVariable String name, @PathVariable  @DateTimeFormat(pattern="dd-MM-yyyy") Date date, 
 				@RequestBody List<Stop> stops){
-		return service.createRoute(vehicleId, new Date(), name, stops);
+		return service.createRoute(vehicleId, date, name, stops);
 	}
 
 }
