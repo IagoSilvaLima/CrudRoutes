@@ -3,9 +3,14 @@ package br.com.trixlog.crudRoutes.models;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Route extends Entity{
 	private String name;
+	
+	@DateTimeFormat(pattern="dd-MM-yyyy")
 	private Date routerDate;
+	
 	private int vehicleId;
 	private List<Stop> stops;
 	private String path;
