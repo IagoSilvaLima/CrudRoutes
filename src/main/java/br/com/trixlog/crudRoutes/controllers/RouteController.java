@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,9 +27,10 @@ public class RouteController  extends EntityController<Route>{
 		return service;
 	}
 	
-	@PostMapping("/createRoute/{vehicleId}/{name}")
+	@PostMapping("/createRoute/{vehicleId}/{name}/{date}")
 	public Route createRoute(@PathVariable int vehicleId,
-			@PathVariable String name,@RequestBody List<Stop> stops){
+			@PathVariable String name, @PathVariable Date date,@DateTimeFormat(pattern="dd-MM-yyyy") 
+				@RequestBody List<Stop> stops){
 		return service.createRoute(vehicleId, new Date(), name, stops);
 	}
 
