@@ -34,5 +34,11 @@ public class RouteService extends EntityService<Route>{
 		route.setPath(PolylineGoogleApi.getPolyline(RequestGoogle.makeUrl(stops)));
 		return repository.insert(route);
 	}
+	
+	@Override
+	public Route update(Route entity) {
+		entity.setPath(PolylineGoogleApi.getPolyline(RequestGoogle.makeUrl(entity.getStops())));
+		return super.update(entity);
+	}
 
 }
